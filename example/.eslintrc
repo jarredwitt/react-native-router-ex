@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+      "classes": true,
+      "jsx": true
+  },
+  "extends": "eslint-config-airbnb",
+  "rules": {
+    "prefer-const": 0,
+    "no-empty-label": 0,
+    "space-before-keywords": 0,
+    "space-after-keywords": 0,
+    "space-return-throw-case": 0,
+    "react/sort-comp": [2, { "order": ["lifecycle", "render", "everything-else"]}],
+    "max-len": [2, 240, 2],
+    "no-alert": 0,
+  },
+  "presets": [
+    "react-native"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "meteor": true,
+    "jasmine": true
+  },
+  "globals": {
+    "Restivus": true
+  }
+}
