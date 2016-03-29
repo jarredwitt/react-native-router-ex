@@ -2,7 +2,7 @@ import React, { View, ScrollView, Text, TouchableOpacity } from 'react-native';
 
 let Settings = (props) => {
   let navigate = () => props.navigate({ type: 'pop' });
-  let push = () => props.navigate({ type: 'push', key: 'profile', title: 'beer' });
+  let push = () => props.navigate({ type: 'push', key: 'profile', title: 'beer', coords: { lat: 0.0, long: 0.0 } });
 
   return (
     <View style={{ flex: 1 }}>
