@@ -1,6 +1,10 @@
 {
   "name": "react-native-router-ex",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jarredwitt/react-native-router-ex"
+  },
   "private": true,
   "scripts": {
     "start": "react-native start",

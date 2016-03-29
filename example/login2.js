@@ -1,18 +1,29 @@
-import React, { View, Text, TouchableOpacity } from 'react-native';
+import React, { Component, View, Text, TouchableOpacity } from 'react-native';
 
-let Settings = (props) => {
-  let navigate = () => props.navigate({ type: 'back' });
+class LoginPage extends Component {
+  static propTypes = {};
+  static defaultProps = {};
 
-  return (
-    <View style={{ flex: 1, backgroundColor: 'blue', alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ marginBottom: 10 }}>Login Page</Text>
-        <TouchableOpacity onPress={navigate}>
-          <View style={{ backgroundColor: 'pink' }}>
-            <Text style={{ padding: 20 }}>{props.data}</Text>
-          </View>
-        </TouchableOpacity>
-    </View>
-  );
-};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  componentWillUnmount(){
+    console.log('unm');
+  }
+  render() {
+    return (
+      <View style={{ flex: 1, backgroundColor: 'blue', alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ marginBottom: 10 }}>Login Page</Text>
+          <TouchableOpacity onPress={this._navigate}>
+            <View style={{ backgroundColor: 'pink' }}>
+              <Text style={{ padding: 20 }}>{this.props.data}</Text>
+            </View>
+          </TouchableOpacity>
+      </View>
+    );
+  }
+  _navigate = () => this.props.navigate({ type: 'back' });
+}
 
-export default Settings;
+export default LoginPage;

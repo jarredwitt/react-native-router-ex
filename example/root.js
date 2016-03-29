@@ -25,7 +25,7 @@ const tabIcon = (tab, index, selectedIndex) => {
   let color = index === selectedIndex ? '#F7CB1B' : '#979797';
 
   return (
-    <View key={tab.key} style={{ flex: 1, alignItems: 'center', marginTop: 7 }}>
+    <View key={index} style={{ flex: 1, alignItems: 'center', marginTop: 7 }}>
       <Image source={icon} />
       <Text style={{ color }}>{tab.title}</Text>
     </View>
@@ -43,11 +43,12 @@ const renderBackButton = (props, onNavigate) => {
 
 const scenes = (
   <RootScene type="tabs">
-    <TabScene key="homeTab" title="Home" component={Home} titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A' }} />
+    <TabScene key="homeTab" title="Home" component={Home} titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A' }} icon={tabIcon} />
     <TabScene key="profileTab" title="Profile" component={Profile} titleStyle={{ color: 'white' }} icon={tabIcon} />
-    <TabScene key="settingsTab" title="Settings" component={Settings} titleStyle={{ color: 'blue' }} />
+    <TabScene key="settingsTab" title="Settings" component={Settings} titleStyle={{ color: 'blue' }} icon={tabIcon} />
     <Scene key="login" title="Login" component={Login} titleStyle={{ color: 'yellow' }} renderBackButton={renderBackButton} renderRightButton={renderBackButton} />
     <Scene key="login2" title="Login 2" component={Login2} direction="vertical" hideNavBar />
+    <Scene key="profile" title="Profile" component={Profile} titleStyle={{ color: 'white' }} />
   </RootScene>
 );
 
