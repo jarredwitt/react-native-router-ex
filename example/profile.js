@@ -1,17 +1,25 @@
-import React, { View, Text, TouchableOpacity } from 'react-native';
+import React, { PropTypes, Text, TouchableOpacity, View } from 'react-native';
+
+const propTypes = {
+  data: PropTypes.any,
+  navigate: PropTypes.func,
+};
 
 let Profile = (props) => {
-  let pushNavigate = () => props.navigate({ type: 'modal', key: 'login2', title: 'Modal Login', data: 'Some data...' });
+  let modalNavigate = () => props.navigate({ type: 'push', key: 'page', title: 'Pushed from profile tab', data: 'Some data from the profile tab' });
+
   return (
-    <View style={{ flex: 1, backgroundColor: 'pink', alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.4)', alignItems: 'center', justifyContent: 'center' }}>
       <Text style={{ marginBottom: 10 }}>Profile Page</Text>
-        <TouchableOpacity style={{ marginBottom: 10 }} onPress={pushNavigate}>
-          <View style={{ backgroundColor: 'green' }}>
-            <Text style={{ padding: 20 }}>Modal Page</Text>
-          </View>
-        </TouchableOpacity>
+      <TouchableOpacity style={{ marginBottom: 10 }} onPress={modalNavigate}>
+        <View style={{ backgroundColor: 'rgba(0, 0, 255, 0.6)' }}>
+          <Text style={{ padding: 20 }}>Push Page</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
+
+Profile.propTypes = propTypes;
 
 export default Profile;

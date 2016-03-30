@@ -1,26 +1,28 @@
-import React, { View, ScrollView, Text, TouchableOpacity } from 'react-native';
+import React, { PropTypes, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 
-let Settings = (props) => {
-  let navigate = () => props.navigate({ type: 'pop' });
-  let push = () => props.navigate({ type: 'push', key: 'profile', title: 'beer', coords: { lat: 0.0, long: 0.0 } });
+const propTypes = {
+  data: PropTypes.any,
+  navigate: PropTypes.func,
+};
+
+let LoginModal = (props) => {
+  let pop = () => props.navigate({ type: 'pop' });
 
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1, backgroundColor: 'grey' }} contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ marginBottom: 10 }}>A pushed page</Text>
-          <TouchableOpacity style={{ marginBottom: 20 }} onPress={navigate}>
-            <View style={{ backgroundColor: 'pink' }}>
-              <Text style={{ padding: 20 }}>Pop Back</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={push}>
-            <View style={{ backgroundColor: 'pink' }}>
-              <Text style={{ padding: 20 }}>Push</Text>
-            </View>
-          </TouchableOpacity>
+        <Text style={{ marginBottom: 10 }}>Login Modal</Text>
+        <Text style={{ marginBottom: 10 }}>{props.data}</Text>
+        <TouchableOpacity onPress={pop}>
+          <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
+            <Text style={{ padding: 20 }}>Close Modal</Text>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
 };
 
-export default Settings;
+LoginModal.propTypes = propTypes;
+
+export default LoginModal;
