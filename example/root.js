@@ -42,13 +42,13 @@ const renderBackButton = (props, onNavigate) => {
 };
 
 const scenes = (
-  <RootScene type="tabs">
+  <RootScene type="tabs" initialScene="login2">
     <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A' }} icon={tabIcon} renderBackButton={renderBackButton} />
     <TabScene key="homeTab" schema="default" title="Home" component={Home} />
     <TabScene key="profileTab" schema="default" title="Profile" component={Profile} />
     <TabScene key="settingsTab" schema="default" title="Settings" component={Settings} />
     <Scene key="login" schema="default" component={Login} />
-    <Scene key="login2" title="Login 2" component={Login2} direction="vertical" />
+    <Scene key="login2" title="Login 2" component={Login2} />
     <Scene key="profile" schema="default" title="Profile" component={Profile} />
   </RootScene>
 );
