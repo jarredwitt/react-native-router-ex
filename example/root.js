@@ -1,6 +1,6 @@
 import React, { Platform, View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Router, RootScene, Scene, TabScene } from '../lib';
+import { Router, RootScene, Scene, Schema, TabScene } from '../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -43,12 +43,13 @@ const renderBackButton = (props, onNavigate) => {
 
 const scenes = (
   <RootScene type="tabs">
-    <TabScene key="homeTab" title="Home" component={Home} titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A' }} icon={tabIcon} />
-    <TabScene key="profileTab" title="Profile" component={Profile} titleStyle={{ color: 'white' }} icon={tabIcon} />
-    <TabScene key="settingsTab" title="Settings" component={Settings} titleStyle={{ color: 'blue' }} icon={tabIcon} />
-    <Scene key="login" title="Login" component={Login} titleStyle={{ color: 'yellow' }} renderBackButton={renderBackButton} renderRightButton={renderBackButton} />
-    <Scene key="login2" title="Login 2" component={Login2} direction="vertical" hideNavBar />
-    <Scene key="profile" title="Profile" component={Profile} titleStyle={{ color: 'white' }} />
+    <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A' }} icon={tabIcon} renderBackButton={renderBackButton} />
+    <TabScene key="homeTab" schema="default" title="Home" component={Home} />
+    <TabScene key="profileTab" schema="default" title="Profile" component={Profile} />
+    <TabScene key="settingsTab" schema="default" title="Settings" component={Settings} />
+    <Scene key="login" schema="default" component={Login} />
+    <Scene key="login2" title="Login 2" component={Login2} direction="vertical" />
+    <Scene key="profile" schema="default" title="Profile" component={Profile} />
   </RootScene>
 );
 
