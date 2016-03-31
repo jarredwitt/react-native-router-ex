@@ -2,11 +2,11 @@ import React, { PropTypes, Text, TouchableOpacity, View, ScrollView } from 'reac
 
 const propTypes = {
   data: PropTypes.any,
-  navigate: PropTypes.func,
+  navigate: PropTypes.object,
 };
 
 let LoginModal = (props) => {
-  let pop = () => props.navigate({ type: 'pop' });
+  let pop = () => props.navigate.pop();
 
   return (
     <View style={{ flex: 1 }}>
