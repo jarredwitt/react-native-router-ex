@@ -1,4 +1,5 @@
 import React, { PropTypes, Text, TouchableOpacity, View } from 'react-native';
+import { connect } from 'react-redux';
 
 const propTypes = {
   data: PropTypes.any,
@@ -22,4 +23,4 @@ let Home = (props) => {
 
 Home.propTypes = propTypes;
 
-export default Home;
+export default connect()(Home);
