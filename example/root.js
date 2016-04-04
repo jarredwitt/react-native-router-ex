@@ -1,6 +1,8 @@
 import React, { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Provider, connect } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
 
-import { Router, RootScene, Scene, Schema, TabScene } from '../lib';
+import { Reducer, Router, RootScene, Scene, Schema, TabScene } from '../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -73,6 +75,21 @@ const scenes = (
   </RootScene>
 );
 
-let Root = () => <Router scenes={scenes} />;
+let select = (state) => ({
+  navState: state.navState,
+});
+let RouterScene = connect(select)((props) => <Router initialScene="login" dispatch={props.dispatch} navState={props.navState} scenes={scenes} />);
+
+let reducers = combineReducers({
+  navState: Reducer,
+});
+
+let store = createStore(reducers);
+
+let Root = () => (
+  <Provider store={store}>
+    <RouterScene />
+  </Provider>
+);
 
 export default Root;
