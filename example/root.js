@@ -34,8 +34,8 @@ const tabIcon = (tab, index, selectedIndex) => {
   );
 };
 
-const renderLeftButton = (props, navigate) => {
-  let handleNavigation = () => navigate.modal('login', { title: 'Modal Login', data: 'Some data from the home tab' });
+const renderLeftButton = (props, navigate, dispatch) => {
+  let handleNavigation = () => dispatch(navigate.modal('login', { title: 'Modal Login', data: 'Some data from the home tab' }));
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
@@ -54,8 +54,8 @@ const renderRightButton = () => {
   );
 };
 
-const renderBackButton = (props, navigate) => {
-  let handleNavigation = () => navigate.pop();
+const renderBackButton = (props, navigate, dispatch) => {
+  let handleNavigation = () => dispatch(navigate.pop());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>

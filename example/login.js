@@ -1,12 +1,14 @@
 import React, { PropTypes, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
 
 const propTypes = {
   data: PropTypes.any,
   navigate: PropTypes.object,
+  dispatch: PropTypes.func,
 };
 
 let LoginModal = (props) => {
-  let pop = () => props.navigate.pop();
+  let pop = () => props.dispatch(props.navigate.pop());
 
   return (
     <View style={{ flex: 1 }}>
@@ -25,4 +27,4 @@ let LoginModal = (props) => {
 
 LoginModal.propTypes = propTypes;
 
-export default LoginModal;
+export default connect()(LoginModal);

@@ -1,12 +1,14 @@
 import React, { PropTypes, Text, TouchableOpacity, View } from 'react-native';
+import { connect } from 'react-redux';
 
 const propTypes = {
   data: PropTypes.any,
   navigate: PropTypes.object,
+  dispatch: PropTypes.func,
 };
 
 let Profile = (props) => {
-  let push = () => props.navigate.push('page', { title: 'Pushed from profile tab', data: 'Some data from the profile tab' });
+  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from profile tab', data: 'Some data from the profile tab' }));
 
   return (
     <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.4)', alignItems: 'center', justifyContent: 'center' }}>
@@ -22,4 +24,4 @@ let Profile = (props) => {
 
 Profile.propTypes = propTypes;
 
-export default Profile;
+export default connect()(Profile);
