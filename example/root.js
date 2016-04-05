@@ -8,6 +8,7 @@ import Profile from './profile';
 import Settings from './settings';
 import Login from './login';
 import Page from './page';
+import Nested from './nested';
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -72,6 +73,7 @@ const scenes = (
     <TabScene key="settingsTab" schema="default" title="Settings" component={Settings} />
     <Scene key="login" schema="default" component={Login} />
     <Scene key="page" schema="default" component={Page} />
+    <Scene key="nested" schema="default" component={Nested} />
   </RootScene>
 );
 
