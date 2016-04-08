@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
 
 import icon from './bullsEye@2x.png';
 
-const tabIcon = (tab, index, selectedIndex) => {
+const tabIcon = (tab, index, key, selectedIndex) => {
   let color = index === selectedIndex ? 'rgba(0, 0, 255, 0.6)' : '#979797';
 
   return (
-    <View key={index} style={{ flex: 1, alignItems: 'center', marginTop: 7 }}>
+    <View index={index} key={key} style={{ flex: 1, alignItems: 'center', marginTop: 7 }}>
       <Image source={icon} />
       <Text style={{ color }}>{tab.title}</Text>
     </View>
@@ -80,7 +80,7 @@ const scenes = (
 let select = (state) => ({
   navState: state.navState,
 });
-let RouterScene = connect(select)((props) => <Router initialScene="login" dispatch={props.dispatch} navState={props.navState} scenes={scenes} />);
+let RouterScene = connect(select)((props) => <Router dispatch={props.dispatch} navState={props.navState} scenes={scenes} />);
 
 let reducers = combineReducers({
   navState: Reducer,

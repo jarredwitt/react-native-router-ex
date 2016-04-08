@@ -8,6 +8,7 @@ const propTypes = {
 };
 
 let Home = (props) => {
+  console.log(props.navState.activeKey);
   let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from home tab', data: 'Some data from the home tab' }));
 
   return (
@@ -24,4 +25,4 @@ let Home = (props) => {
 
 Home.propTypes = propTypes;
 
-export default connect()(Home);
+export default connect((state) => ({ navState: state.navState }))(Home);

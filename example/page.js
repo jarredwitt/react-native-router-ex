@@ -27,4 +27,4 @@ let Page = (props) => {
 
 Page.propTypes = propTypes;
 
-export default connect()(Page);
+export default connect((state) => ({ navState: state.navState }))(Page);
