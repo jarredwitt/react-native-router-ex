@@ -61,6 +61,6 @@ title | string | Title that will be rendered in the navbar for the scene.
 titleStyle | Text.propTypes.style | Text style for the title.
 schema | string | Schema key that the scene inherits properties from.
 renderBackButton | closure | Closure to render a back button. Only shown when the scene is pushed onto the nav stack. Arguments passed are props (Scene properties), navigate (navigation action creators), and dispatch (redux dispatch). The closure must return a component. 
-renderLeftButton | closure | Closure to render a left button. Overrides backbutton. Arguments passed are props (Scene properties), navigate (navigation action creators), and dispatch (redux dispatch). The closure must return a component. 
+renderLeftButton | closure | Closure to render a left button. If scene is pushed to this will not render. The back button will take precedence. Arguments passed are props (Scene properties), navigate (navigation action creators), and dispatch (redux dispatch). The closure must return a component. 
 renderBackButton | closure | Closure to render a right button. Arguments passed are props (Scene properties), navigate (navigation action creators), and dispatch (redux dispatch). The closure must return a component. 
 
