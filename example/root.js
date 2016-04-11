@@ -81,8 +81,7 @@ const mapStateToProps = (state) => ({
   navState: state.navState,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  dispatch,
+const mapDispatchToProps = () => ({
   scenes,
 });
 

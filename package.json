@@ -1,6 +1,10 @@
 {
   "name": "react-native-router-ex",
+<<<<<<< HEAD
   "version": "2.3.1",
+=======
+  "version": "2.2.2",
+>>>>>>> 1e2e330f3a96b911960366b7968e30c6755b41a7
   "repository": {
     "type": "git",
     "url": "https://github.com/jarredwitt/react-native-router-ex"
