@@ -1,6 +1,6 @@
 {
   "name": "react-native-router-ex",
-  "version": "2.2.1",
+  "version": "2.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarredwitt/react-native-router-ex"
@@ -16,7 +16,7 @@
     "react-native-tabs": "^1.0.2"
   },
   "peerDependencies": {
-    "react-native": "^0.23.0-rc1",
+    "react-native": "^0.24.0-rc",
     "react": "^0.14.7"
   },
   "devDependencies": {

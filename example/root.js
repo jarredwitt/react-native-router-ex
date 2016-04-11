@@ -77,10 +77,16 @@ const scenes = (
   </RootScene>
 );
 
-let select = (state) => ({
+const mapStateToProps = (state) => ({
   navState: state.navState,
 });
-let RouterScene = connect(select)((props) => <Router dispatch={props.dispatch} navState={props.navState} scenes={scenes} />);
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch,
+  scenes,
+});
+
+let RouterScene = connect(mapStateToProps, mapDispatchToProps)(Router);
 
 let reducers = combineReducers({
   navState: Reducer,
