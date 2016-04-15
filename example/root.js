@@ -81,11 +81,7 @@ const mapStateToProps = (state) => ({
   navState: state.navState,
 });
 
-const mapDispatchToProps = () => ({
-  scenes,
-});
-
-let RouterScene = connect(mapStateToProps, mapDispatchToProps)(Router);
+let RouterScene = connect(mapStateToProps)(Router);
 
 let reducers = combineReducers({
   navState: Reducer,
@@ -95,7 +91,7 @@ let store = createStore(reducers);
 
 let Root = () => (
   <Provider store={store}>
-    <RouterScene />
+    <RouterScene scenes={scenes} />
   </Provider>
 );
 
