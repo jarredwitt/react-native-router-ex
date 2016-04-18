@@ -8,7 +8,7 @@ const propTypes = {
 };
 
 let Profile = (props) => {
-  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from profile tab', data: 'Some data from the profile tab' }));
+  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from profile tab', data: 'Some data from the profile tab', parent: 'profileTab' }));
 
   return (
     <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.4)', alignItems: 'center', justifyContent: 'center' }}>

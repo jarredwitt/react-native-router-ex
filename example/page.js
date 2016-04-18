@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 const propTypes = {
   data: PropTypes.any,
   navigate: PropTypes.object,
+  parent: PropTypes.string,
   dispatch: PropTypes.func,
 };
 
 let Page = (props) => {
-  let push = () => props.dispatch(props.navigate.push('nested', { title: 'Pushed from within page', data: 'Some data from the pushed page tab' }));
+  let push = () => props.dispatch(props.navigate.push('nested', { title: 'Pushed from within page', data: 'Some data from the pushed page tab', parent: props.parent }));
 
   return (
     <View style={{ flex: 1 }}>

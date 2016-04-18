@@ -8,7 +8,7 @@ const propTypes = {
 };
 
 let Home = (props) => {
-  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from home tab', data: 'Some data from the home tab' }));
+  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from home tab', data: 'Some data from the home tab', parent: 'homeTab' }));
   let modalHorizontal = () => props.dispatch(props.navigate.modal('login', { direction: 'horizontal', data: 'Some data from the home tab' }));
 
   return (
