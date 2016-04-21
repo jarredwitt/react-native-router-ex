@@ -1,11 +1,17 @@
 {
   "name": "react-native-router-ex",
+  "author": "Jarred Witt",
+  "description": "React Native router that uses NavigationExperimental.",
   "version": "2.5.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarredwitt/react-native-router-ex"
   },
-  "private": true,
+  "keywords": [
+    "react native",
+    "react native router",
+    "navigation experimental router"
+  ],
   "scripts": {
     "start": "react-native start",
     "lint": "eslint .",
@@ -16,7 +22,7 @@
     "react-native-tabs": "^1.0.2"
   },
   "peerDependencies": {
-    "react-native": "^0.24.0-rc",
+    "react-native": "^0.24.0",
     "react": "^0.14.7",
     "redux": "^3.4.0",
     "react-redux": "^4.4.5"
