@@ -20,6 +20,19 @@ const styles = StyleSheet.create({
   button: {
     margin: Platform.OS === 'ios' ? 10 : 16,
   },
+  customTitle: {
+    color: 'white',
+    fontSize: 14,
+  },
+  customTitleContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    marginLeft: 30,
+    marginRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
 });
 
 import icon from './bullsEye@2x.png';
@@ -32,6 +45,16 @@ const tabIcon = (tab, index, key, selectedIndex) => {
       <Image source={icon} />
       <Text style={{ color }}>{tab.title}</Text>
     </View>
+  );
+};
+
+const renderBackButton = (props, navigate, dispatch) => {
+  let handleNavigation = () => dispatch(navigate.pop());
+
+  return (
+    <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
+      <Text style={styles.button}>Back</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -55,20 +78,19 @@ const renderRightButton = () => {
   );
 };
 
-const renderBackButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.pop());
-
-  return (
-    <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
-      <Text style={styles.button}>Back</Text>
-    </TouchableOpacity>
-  );
-};
+/* eslint react/prop-types: 0 */
+const renderTitle = (props) => (
+  <View style={styles.customTitleContainer}>
+    <Text style={styles.customTitle}>
+      {props.title}
+    </Text>
+  </View>
+);
 
 const scenes = (
   <RootScene type="tabs">
-    <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A' }} icon={tabIcon} renderBackButton={renderBackButton} />
-    <TabScene key="homeTab" schema="default" title="Home" component={Home} renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} />
+    <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} icon={tabIcon} renderBackButton={renderBackButton} />
+    <TabScene key="homeTab" schema="default" title="Home" component={Home} renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} renderTitle={renderTitle} />
     <TabScene key="profileTab" schema="default" title="Profile" component={Profile} />
     <TabScene key="settingsTab" schema="default" title="Settings" component={Settings} />
     <Scene key="login" schema="default" component={Login} />
