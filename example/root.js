@@ -42,7 +42,7 @@ const tabIcon = (tab, index, key, selectedIndex) => {
   let color = index === selectedIndex ? 'rgba(0, 0, 255, 0.6)' : '#979797';
 
   return (
-    <View index={index} key={key} style={{ flex: 1, alignItems: 'center', marginTop: 7 }}>
+    <View index={index} key={key} style={{ flex: 1, alignItems: 'center' }}>
       <Image source={icon} />
       <Text style={{ color }}>{tab.title}</Text>
     </View>
