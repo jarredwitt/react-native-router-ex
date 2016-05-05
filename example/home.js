@@ -1,4 +1,5 @@
-import React, { PropTypes, Text, TouchableOpacity, View } from 'react-native';
+import React, { PropTypes } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
 const propTypes = {

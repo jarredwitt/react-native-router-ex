@@ -1,4 +1,5 @@
-import React, { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
