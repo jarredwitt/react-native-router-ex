@@ -9,6 +9,7 @@
     "prefer-const": 0,
     "no-empty-label": 0,
     "no-underscore-dangle": 0,
+    "no-extra-parens": [2, "function"],
     "import/no-unresolved": 0,
     "space-before-keywords": 0,
     "space-after-keywords": 0,
@@ -22,12 +23,5 @@
   ],
   "plugins": [
     "react"
-  ],
-  "env": {
-    "meteor": true,
-    "jasmine": true
-  },
-  "globals": {
-    "Restivus": true
-  }
+  ]
 }

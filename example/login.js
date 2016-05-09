@@ -10,12 +10,18 @@ const propTypes = {
 
 let LoginModal = (props) => {
   let pop = () => props.dispatch(props.navigate.pop());
+  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from modal login', data: 'Some data from the modal login' }));
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView style={{ flex: 1, backgroundColor: 'grey' }} contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <ScrollView style={{ flex: 1, backgroundColor: 'gray' }} contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text style={{ marginBottom: 10 }}>Login Modal</Text>
         <Text style={{ marginBottom: 10 }}>{props.data}</Text>
+        <TouchableOpacity style={{ marginBottom: 10 }} onPress={push}>
+          <View style={{ backgroundColor: 'rgba(0, 0, 255, 0.6)' }}>
+            <Text style={{ padding: 20 }}>Push Page</Text>
+          </View>
+        </TouchableOpacity>
         <TouchableOpacity onPress={pop}>
           <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
             <Text style={{ padding: 20 }}>Close Modal</Text>
