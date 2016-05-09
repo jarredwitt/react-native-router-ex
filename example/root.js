@@ -112,7 +112,7 @@ let reducers = combineReducers({
 
 let store = createStore(reducers);
 
-let Root = () => (
+const Root = () => (
   <Provider store={store}>
     <RouterScene scenes={scenes} />
   </Provider>
