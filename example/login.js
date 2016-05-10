@@ -10,7 +10,7 @@ const propTypes = {
 
 let LoginModal = (props) => {
   let pop = () => props.dispatch(props.navigate.pop());
-  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from modal login', data: 'Some data from the modal login' }));
+  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from modal login', data: 'Some data from the modal login', modal: true }));
 
   return (
     <View style={{ flex: 1 }}>
