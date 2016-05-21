@@ -3,7 +3,7 @@ import { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import { Reducer, Router, RootScene, Scene, Schema, TabScene } from '../lib';
+import { DrawerScene, Reducer, Router, RootScene, Scene, Schema } from '../../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -36,18 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-import icon from './bullsEye@2x.png';
-
-const tabIcon = (tab, index, key, selectedIndex) => {
-  let color = index === selectedIndex ? 'rgba(0, 0, 255, 0.6)' : '#979797';
-
-  return (
-    <View index={index} key={key} style={{ flex: 1, alignItems: 'center' }}>
-      <Image source={icon} />
-      <Text style={{ color }}>{tab.title}</Text>
-    </View>
-  );
-};
+import icon from '../bullsEye@2x.png';
 
 const renderBackButton = (props, navigate, dispatch) => {
   let handleNavigation = () => dispatch(navigate.pop());
@@ -60,11 +49,11 @@ const renderBackButton = (props, navigate, dispatch) => {
 };
 
 const renderLeftButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.modal('login', { title: 'Modal Login', data: 'Some data from the home tab' }));
+  let handleNavigation = () => dispatch(navigate.toggleLeftDrawer());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
-      <Text style={styles.button}>Login</Text>
+      <Text style={styles.button}>Menu</Text>
     </TouchableOpacity>
   );
 };
@@ -89,14 +78,11 @@ const renderTitle = (props) => (
 );
 
 const scenes = (
-  <RootScene type="tabs">
-    <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} icon={tabIcon} renderBackButton={renderBackButton} />
-    <TabScene key="homeTab" schema="default" title="Home" component={Home} renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} renderTitle={renderTitle} />
-    <TabScene key="profileTab" schema="default" title="Profile" component={Profile} />
-    <TabScene key="settingsTab" schema="default" title="Settings" component={Settings} />
-    <Scene key="login" schema="default" component={Login} />
-    <Scene key="page" schema="default" component={Page} />
-    <Scene key="nested" schema="default" component={Nested} />
+  <RootScene type="drawer">
+    <Schema key="leftDrawer" renderLeftButton={renderLeftButton} />
+    <DrawerScene key="home" schema="leftDrawer" position="left" title="Drawer One" component={Home} />
+    <DrawerScene key="profile" schema="leftDrawer" position="left" title="Drawer Two" component={Profile} />
+    <DrawerScene key="settings" schema="leftDrawer" position="left" title="Drawer Three" component={Settings} />
   </RootScene>
 );
 
