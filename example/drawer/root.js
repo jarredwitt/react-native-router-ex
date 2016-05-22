@@ -53,17 +53,17 @@ const renderLeftButton = (props, navigate, dispatch) => {
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
-      <Text style={styles.button}>Menu</Text>
+      <Text style={styles.button}>Left Menu</Text>
     </TouchableOpacity>
   );
 };
 
-const renderRightButton = () => {
-  let handleNavigation = () => Alert.alert('Alert', 'You pressed the right button', [{ text: 'OK' }]);
+const renderRightButton = (props, navigate, dispatch) => {
+  let handleNavigation = () => dispatch(navigate.toggleRightDrawer());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
-      <Text style={styles.button}>Alert</Text>
+      <Text style={styles.button}>Right Menu</Text>
     </TouchableOpacity>
   );
 };
@@ -79,10 +79,14 @@ const renderTitle = (props) => (
 
 const scenes = (
   <RootScene type="drawer">
-    <Schema key="leftDrawer" renderLeftButton={renderLeftButton} />
-    <DrawerScene key="home" schema="leftDrawer" position="left" title="Drawer One" component={Home} />
-    <DrawerScene key="profile" schema="leftDrawer" position="left" title="Drawer Two" component={Profile} />
-    <DrawerScene key="settings" schema="leftDrawer" position="left" title="Drawer Three" component={Settings} />
+    <Schema key="drawer" renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} />
+    <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} renderBackButton={renderBackButton} />
+    <DrawerScene key="home" schema="drawer" position="left" title="Drawer One" component={Home} />
+    <DrawerScene key="profile" schema="drawer" position="left" title="Drawer Two" component={Profile} />
+    <DrawerScene key="settings" schema="drawer" position="right" title="Drawer Three" component={Settings} />
+    <Scene key="login" schema="default" component={Login} title="Login" />
+    <Scene key="page" schema="default" component={Page} />
+    <Scene key="nested" schema="default" component={Nested} />
   </RootScene>
 );
 
