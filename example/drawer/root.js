@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Platform, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
@@ -10,6 +10,7 @@ import Settings from './settings';
 import Login from './login';
 import Page from './page';
 import Nested from './nested';
+import DrawerMenu from './drawerMenu/drawerMenu';
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -36,8 +37,6 @@ const styles = StyleSheet.create({
   },
 });
 
-import icon from '../bullsEye@2x.png';
-
 const renderBackButton = (props, navigate, dispatch) => {
   let handleNavigation = () => dispatch(navigate.pop());
 
@@ -53,7 +52,7 @@ const renderLeftButton = (props, navigate, dispatch) => {
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
-      <Text style={styles.button}>Left Menu</Text>
+      <Text style={styles.button}>Menu</Text>
     </TouchableOpacity>
   );
 };
@@ -63,22 +62,13 @@ const renderRightButton = (props, navigate, dispatch) => {
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
-      <Text style={styles.button}>Right Menu</Text>
+      <Text style={styles.button}>Menu</Text>
     </TouchableOpacity>
   );
 };
 
-/* eslint react/prop-types: 0 */
-const renderTitle = (props) => (
-  <View style={styles.customTitleContainer}>
-    <Text style={styles.customTitle}>
-      {props.title}
-    </Text>
-  </View>
-);
-
 const scenes = (
-  <RootScene type="drawer">
+  <RootScene type="drawer" leftMenuComponent={DrawerMenu} rightMenuComponent={DrawerMenu}>
     <Schema key="drawer" renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} />
     <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} renderBackButton={renderBackButton} />
     <DrawerScene key="home" schema="drawer" position="left" title="Drawer One" component={Home} />

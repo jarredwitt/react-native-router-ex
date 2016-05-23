@@ -7,7 +7,6 @@ import React, {
   AppRegistry
 } from 'react-native';
 
-//import Root from './example/NavigationExperimentalExample';
 import Root from './example/drawer/root';
 
 AppRegistry.registerComponent('ReactNativeRouter', () => Root);

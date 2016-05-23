@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 let Settings = (props) => {
-  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from settings tab', data: 'Some data from the settings tab', parent: 'settingsTab' }));
+  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from settings tab', data: 'Some data from the settings tab', parent: 'settings' }));
 
   return (
     <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.6)', alignItems: 'center', justifyContent: 'center' }}>
