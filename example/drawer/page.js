@@ -1,18 +1,18 @@
 import React, { PropTypes } from 'react';
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { NavActions } from '../../lib';
 
 const propTypes = {
   data: PropTypes.any,
-  navigate: PropTypes.object,
   parent: PropTypes.string,
   modal: PropTypes.bool,
   dispatch: PropTypes.func,
 };
 
 let Page = (props) => {
-  let push = () => props.dispatch(props.navigate.push('nested', { title: 'Pushed from within page', data: 'Some data from the pushed page tab', parent: props.parent }));
-  let closeModal = () => props.dispatch(props.navigate.modalPop());
+  let push = () => props.dispatch(NavActions.push('nested', { title: 'Pushed from within page', data: 'Some data from the pushed page tab', parent: props.parent }));
+  let closeModal = () => props.dispatch(NavActions.modalPop());
 
   return (
     <View style={{ flex: 1 }}>

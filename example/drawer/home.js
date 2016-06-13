@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
+import { NavActions } from '../../lib';
 
 const propTypes = {
   data: PropTypes.any,
-  navigate: PropTypes.object,
   dispatch: PropTypes.func,
 };
 
 let Home = (props) => {
-  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from home tab', data: 'Some data from the home tab', parent: 'home' }));
-  let modalHorizontal = () => props.dispatch(props.navigate.modal('login', { direction: 'horizontal', data: 'Some data from the home tab' }));
+  let push = () => props.dispatch(NavActions.push('page', { title: 'Pushed from home tab', data: 'Some data from the home tab', parent: 'home' }));
+  let modalHorizontal = () => props.dispatch(NavActions.modal('login', { direction: 'horizontal', data: 'Some data from the home tab' }));
 
   return (
     <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.2)', alignItems: 'center', justifyContent: 'center' }}>

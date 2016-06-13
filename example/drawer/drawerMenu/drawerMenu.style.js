@@ -4,17 +4,17 @@ let styles = {
   mainView: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    paddingTop: 20,
   },
   menuItem: {
     alignSelf: 'stretch',
-    height: 50,
+    height: 64,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.1)',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   menuItemText: {
     marginLeft: 10,
+    marginBottom: 10,
   },
 };
 

@@ -3,7 +3,7 @@ import { Platform, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import { DrawerScene, Reducer, Router, RootScene, Scene, Schema } from '../../lib';
+import { DrawerScene, NavActions, Reducer, Router, RootScene, Scene, Schema } from '../../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const renderBackButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.pop());
+const renderBackButton = (props, dispatch) => {
+  let handleNavigation = () => dispatch(NavActions.pop());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
@@ -47,8 +47,8 @@ const renderBackButton = (props, navigate, dispatch) => {
   );
 };
 
-const renderLeftButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.toggleLeftDrawer());
+const renderLeftButton = (props, dispatch) => {
+  let handleNavigation = () => dispatch(NavActions.toggleLeftDrawer());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
@@ -57,8 +57,8 @@ const renderLeftButton = (props, navigate, dispatch) => {
   );
 };
 
-const renderRightButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.toggleRightDrawer());
+const renderRightButton = (props, dispatch) => {
+  let handleNavigation = () => dispatch(NavActions.toggleRightDrawer());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
@@ -68,7 +68,7 @@ const renderRightButton = (props, navigate, dispatch) => {
 };
 
 const scenes = (
-  <RootScene type="drawer" leftMenuComponent={DrawerMenu} leftMenuWidth={200} rightMenuComponent={DrawerMenu}>
+  <RootScene type="drawer" leftMenuComponent={DrawerMenu} leftMenuWidth={200} rightMenuWidth={300} rightMenuComponent={DrawerMenu}>
     <Schema key="drawer" renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} />
     <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} renderBackButton={renderBackButton} />
     <DrawerScene key="home" schema="drawer" position="left" title="Drawer One" component={Home} />
