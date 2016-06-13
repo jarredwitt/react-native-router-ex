@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import { NavActions } from '../../lib';
 
 const propTypes = {
   data: PropTypes.any,
-  navigate: PropTypes.object,
   dispatch: PropTypes.func,
 };
 
 let LoginModal = (props) => {
-  let pop = () => props.dispatch(props.navigate.pop());
-  let push = () => props.dispatch(props.navigate.push('page', { title: 'Pushed from modal login', data: 'Some data from the modal login', modal: true }));
+  let pop = () => props.dispatch(NavActions.pop());
+  let push = () => props.dispatch(NavActions.push('page', { title: 'Pushed from modal login', data: 'Some data from the modal login', modal: true }));
 
   return (
     <View style={{ flex: 1 }}>

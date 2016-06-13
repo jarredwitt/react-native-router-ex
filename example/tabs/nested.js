@@ -1,18 +1,18 @@
 import React, { PropTypes } from 'react';
 import { Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import { NavActions } from '../../lib';
 
 const propTypes = {
   data: PropTypes.any,
-  navigate: PropTypes.object,
   parent: PropTypes.string,
   dispatch: PropTypes.func,
 };
 
 let Nested = (props) => {
-  let push = () => props.dispatch(props.navigate.push('nested', { title: 'Pushed from within page', data: 'Some data from the pushed page tab', parent: props.parent }));
+  let push = () => props.dispatch(NavActions.push('nested', { title: 'Pushed from within page', data: 'Some data from the pushed page tab', parent: props.parent }));
 
-  let popTo = () => props.dispatch(props.navigate.popTo(props.parent));
+  let popTo = () => props.dispatch(NavActions.popTo(props.parent));
 
   return (
     <View style={{ flex: 1 }}>

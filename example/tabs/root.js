@@ -3,7 +3,7 @@ import { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import { Reducer, Router, RootScene, Scene, Schema, TabScene } from '../../lib';
+import { NavActions, Reducer, Router, RootScene, Scene, Schema, TabScene } from '../../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -49,8 +49,8 @@ const tabIcon = (tab, index, key, selectedIndex) => {
   );
 };
 
-const renderBackButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.pop());
+const renderBackButton = (props, dispatch) => {
+  let handleNavigation = () => dispatch(NavActions.pop());
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
@@ -59,8 +59,8 @@ const renderBackButton = (props, navigate, dispatch) => {
   );
 };
 
-const renderLeftButton = (props, navigate, dispatch) => {
-  let handleNavigation = () => dispatch(navigate.modal('login', { title: 'Modal Login', data: 'Some data from the home tab' }));
+const renderLeftButton = (props, dispatch) => {
+  let handleNavigation = () => dispatch(NavActions.modal('login', { title: 'Modal Login', data: 'Some data from the home tab' }));
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={handleNavigation}>
