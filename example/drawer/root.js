@@ -3,7 +3,7 @@ import { Platform, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import { DrawerScene, NavActions, Reducer, Router, RootScene, Scene, Schema } from '../../lib';
+import { DrawerNavigation, DrawerScene, NavActions, Reducer, Router, Scene, Schema } from '../../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -68,7 +68,7 @@ const renderRightButton = (props, dispatch) => {
 };
 
 const scenes = (
-  <RootScene type="drawer" leftMenuComponent={DrawerMenu} rightMenuComponent={DrawerMenu}>
+  <DrawerNavigation leftMenuComponent={DrawerMenu} rightMenuComponent={DrawerMenu}>
     <Schema key="drawer" renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} />
     <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} renderBackButton={renderBackButton} />
     <DrawerScene key="home" schema="drawer" position="left" title="Drawer One" component={Home} />
@@ -77,7 +77,7 @@ const scenes = (
     <Scene key="login" schema="default" component={Login} title="Login" />
     <Scene key="page" schema="default" component={Page} />
     <Scene key="nested" schema="default" component={Nested} />
-  </RootScene>
+  </DrawerNavigation>
 );
 
 const mapStateToProps = (state) => ({
