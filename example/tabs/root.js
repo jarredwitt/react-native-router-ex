@@ -3,7 +3,7 @@ import { Alert, Image, Platform, Text, StyleSheet, TouchableOpacity, View } from
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import { NavActions, Reducer, Router, RootScene, Scene, Schema, TabScene } from '../../lib';
+import { NavActions, Reducer, Router, Scene, Schema, TabNavigation, TabScene } from '../../lib';
 import Home from './home';
 import Profile from './profile';
 import Settings from './settings';
@@ -89,7 +89,7 @@ const renderTitle = (props) => (
 );
 
 const scenes = (
-  <RootScene type="tabs">
+  <TabNavigation>
     <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} icon={tabIcon} renderBackButton={renderBackButton} />
     <TabScene key="homeTab" schema="default" title="Home" component={Home} renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} renderTitle={renderTitle} />
     <TabScene key="profileTab" schema="default" title="Profile" component={Profile} />
@@ -97,7 +97,7 @@ const scenes = (
     <Scene key="login" schema="default" component={Login} title="Login" />
     <Scene key="page" schema="default" component={Page} />
     <Scene key="nested" schema="default" component={Nested} />
-  </RootScene>
+  </TabNavigation>
 );
 
 const mapStateToProps = (state) => ({

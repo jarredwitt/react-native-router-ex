@@ -68,7 +68,7 @@ const renderRightButton = (props, dispatch) => {
 };
 
 const scenes = (
-  <DrawerNavigation leftMenuComponent={DrawerMenu} rightMenuComponent={DrawerMenu}>
+  <DrawerNavigation leftMenuComponent={DrawerMenu} leftMenuWidth={300} rightMenuWidth={300} rightMenuComponent={DrawerMenu}>
     <Schema key="drawer" renderLeftButton={renderLeftButton} renderRightButton={renderRightButton} />
     <Schema key="default" titleStyle={{ fontSize: 17, fontFamily: 'avenir', color: '#4A4A4A', fontWeight: '400' }} renderBackButton={renderBackButton} />
     <DrawerScene key="home" schema="drawer" position="left" title="Drawer One" component={Home} />
