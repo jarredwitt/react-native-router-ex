@@ -1,5 +1,5 @@
 # Deprecated
-This project has been deprecated in favor on my new library [React Native Helm](https://github.com/jarredwitt/react-native-helm). 
+This project has been deprecated in favor of my new library [React Native Helm](https://github.com/jarredwitt/react-native-helm). 
 
 # react-native-router-ex
 React native router that uses NavigationExperimental. This router is still in heavy development.
