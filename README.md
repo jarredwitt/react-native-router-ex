@@ -1,3 +1,6 @@
+# Deprecated
+This project has been deprecated in favor on my new library [React Native Helm](https://github.com/jarredwitt/react-native-helm). 
+
 # react-native-router-ex
 React native router that uses NavigationExperimental. This router is still in heavy development.
 API changes are going to be fairly sporadic since NavigationExperimental is still being developed as well. The router does rely on redux for navState management. Checkout the example/root.js to see the setup.
